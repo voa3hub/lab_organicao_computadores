@@ -9,7 +9,9 @@ module tb_teste;
 
    initial begin
      
-     for(int j=0, j<=5,j++)begin
+    $monitor($time,"a = %d | b = %d | c = %d | d = %d sel = %b | muxOut = %d", a,b,c,d, count, muxOut);
+
+     for(int j=0; j<=5 ;j++)begin
      
      a = $urandom(); 
      b = $urandom();
@@ -18,7 +20,6 @@ module tb_teste;
 
      count=2'b00;
 
-     $monitor($time,"a = %d | b = %d | c = %d | d = %d sel = %b | muxOut = %d", a,b,c,d, count, muxOut);
      for(int i=0; i < 4; i++) begin 
      #10;    
      count++;
