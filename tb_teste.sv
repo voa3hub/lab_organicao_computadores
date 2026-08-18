@@ -8,6 +8,9 @@ module tb_teste;
    mux dut(.f(muxOut), .a(a), .b(b),.c(c),.d(d), .sel(count));
 
    initial begin
+     
+     for(int case=0, case<=5,case++)begin
+     
      a = $urandom(); 
      b = $urandom();
      c = $urandom();
@@ -19,7 +22,9 @@ module tb_teste;
      for(int i=0; i < 4; i++) begin 
      #10;    
      count++;
-    end
+        end
+   end
+   
    #10;
    $stop;
 end
