@@ -8,14 +8,20 @@ module tb_teste;
    mux dut(.f(muxOut), .a(a), .b(b),.c(c),.d(d), .sel(count));
 
    initial begin
-     a = 32'd10; 
-     b = 32'd20;
-     c = 32'd30;
-     d = 32'd40;
+     a = $urandom(); 
+     b = $urandom();
+     c = $urandom();
+     d = $urandom();
+
+     count=2'b00;
 
      $monitor($time,"a = %d | b = %d | c = %d | d = %d sel = %b | muxOut = %d", a,b,c,d, count, muxOut);
-     for(count = 0; count < 4; count++) #10;     
-     #10 $stop;
-   end
+     for(int i=0; i < 4; i++) begin 
+     #10;    
+     count++;
+    end
+   #10;
+   $stop;
+end
 
 endmodule: tb_teste
