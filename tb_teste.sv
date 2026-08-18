@@ -9,7 +9,7 @@ module tb_teste;
 
    initial begin
      
-     for(int i=0, i<=5,i++)begin
+     for(int j=0, j<=5,j++)begin
      
      a = $urandom(); 
      b = $urandom();
